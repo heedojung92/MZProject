@@ -108,12 +108,20 @@
         <section>
           <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
           <script>
-          $(document).ready(function(){ if (!('url' in window) && ('webkitURL' in window)) { window.URL = window.webkitURL; } $('#camera').change(function(e){ $('#pic').attr('src', URL.createObjectURL(e.target.files[0])); }); });
+          $(document).ready(
+            function(){
+              if (!('url' in window) && ('webkitURL' in window)) {
+                window.URL = window.webkitURL; }
+                $('#camera').change(function(e){
+                  $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+                });
+                });
         </script>
 
           <input type="file" id="camera" name="camera" capture="camera" accept="image/*" /> <br />
 <figure>
-          <img id="pic" style="width:100%;" />
+
+          <img class="alignleft size-50" id="pic" />
 </figure>
         </section>
         <section>
