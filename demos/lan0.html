@@ -63,19 +63,14 @@
   </head>
 <html>
 <section>
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
   <script>
   $(document).ready(
     function(){
-      if (!('url' in window) && ('webkitURL' in window)) {
-        window.URL = window.webkitURL; }
-        $('#camera').change(function(e){
-          $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
-          alert(URL.createObjectURL(e.target.files[0]));
-          $('#pic2').attr('style','background:url('+ URL.createObjectURL(e.target.files[0]) +') 50% 50% no-repeat;background-size: cover');
+      alert("sssss");
+    }
 
-        });
-        });
+  )
 </script>
 
   <input type="file" id="camera" name="camera" capture="camera" accept="image/*" /> <br />
