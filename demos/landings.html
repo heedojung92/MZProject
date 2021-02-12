@@ -106,24 +106,20 @@
           <!-- .end .wrap -->
         </section>
         <section>
-          <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
           <script>
-          $(document).ready(
-            function(){
-              if (!('url' in window) && ('webkitURL' in window)) {
-                window.URL = window.webkitURL; }
-                $('#camera').change(function(e){
-                  $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
-                  alert(URL.createObjectURL(e.target.files[0]));
-                  $('#pic2').attr('style','background:url('+ URL.createObjectURL(e.target.files[0]) +') 50% 50% no-repeat;background-size: cover');
-
-                });
-                });
+          function fun(e){
+            if (!('url' in window) && ('webkitURL' in window)) {
+              window.URL = window.webkitURL;
+            }
+            var imgUrl=URL.createObjectURL(e.files[0]);
+            document.getElementById("pic2").src=imgUrl;
+          }
         </script>
 
-          <input type="file" id="camera" name="camera" capture="camera" accept="image/*" /> <br />
-          <p id="pic2" style="background:url('') 50% 50% no-repeat;background-size: cover"></p>
+          <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
+          <img id="pic2" style=" 30% 30% no-repeat;background-size: cover"></p>
         </section>
+        
         <section>
           <div class="wrap size-40">
           <h3>Table of Contents</h3>
