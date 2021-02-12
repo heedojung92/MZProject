@@ -67,6 +67,9 @@
   <script>
   function fun(e){
     alert("ssss");
+    if (!('url' in window) && ('webkitURL' in window)) {
+      window.URL = window.webkitURL;
+    }
     alert(URL.createObjectURL(e.target.files[0]));
     document.getElementById("pic2").src="https://webslides.tv/static/images/cover-apple.jpg";
   }
