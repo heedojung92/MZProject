@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>바른 얼굴보장 분석 서비스</title>
+    <meta name="description" content="MZ Project - NZPL">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- CSS Base -->
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
+
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/svg-icons.css">
+
+    <!-- SOCIAL CARDS (ADD YOUR INFO) -->
+
+    <!-- FACEBOOK -->
+    <meta property="og:url" content="http://your-url.com/permalink"> <!-- EDIT -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="WebSlides Landings: Create your web presence easily"> <!-- EDIT -->
+    <meta property="og:description" content="Create simple, beautiful landing pages with WebSlides. 120+ free slides ready to use."> <!-- EDIT -->
+    <meta property="og:updated_time" content="2017-01-04T16:54:27"> <!-- EDIT -->
+    <meta property="og:image" content="../static/images/share-webslides.jpg" > <!-- EDIT -->
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@webslides"> <!-- EDIT -->
+    <meta name="twitter:creator" content="@jlantunez"> <!-- EDIT -->
+    <meta name="twitter:title" content="WebSlides Landings: Create your web presence easily"> <!-- EDIT -->
+    <meta name="twitter:description" content="Create simple, beautiful landing pages with WebSlides. 120+ free slides ready to use."> <!-- EDIT -->
+    <meta name="twitter:image" content="../static/images/share-webslides.jpg"> <!-- EDIT -->
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
+    <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">
+    <link rel="apple-touch-icon icon" sizes="76x76" href="../static/images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon icon" sizes="120x120" href="../static/images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon icon" sizes="152x152" href="../static/images/favicons/favicon-152.png">
+    <link rel="apple-touch-icon icon" sizes="180x180" href="../static/images/favicons/favicon-180.png">
+    <link rel="apple-touch-icon icon" sizes="192x192" href="../static/images/favicons/favicon-192.png">
+
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+  </head>
+  <body>
+    <header role="banner">
+    </header>
+    <main role="main">
+      <article id="webslides">
+
+
+        <section class="bg-purple aligncenter">
+         <span class="background dark" style="background-image:url('https://source.unsplash.com/C1HhAQrbykQ/')"></span>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap">
+            <h1 class="text-landing"> 바른 얼굴보장 분석 서비스 </h1>
+            <br/><br/>
+            <p class="text-symbols">NJLP</p>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+        <section class="bg-black">
+          <span class="background" style="background-image:url('https://source.unsplash.com/p3UCTiZIU6M/')"></span>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap size-70 aligncenter">
+            <h2> 나의 피부 타입과 상태는? </h2>
+            <p class="text-intro"> 몇가지 질문과 현재 피부사진으로 분석을 받을 수 있습니다.</p>
+            <form action="/" method="post" class="bg-trans-dark">
+              <ul class="flexblock">
+                <li> 이름 <br><input type="text" tabindex="1" id="name" placeholder="이름을 입력해주세요" required></li>
+                <li> 전화번호 <br><input type="tel" tabindex="2" name="tel1" placeholder="010" required>
+                    <input type="tel" tabindex="2" name="tel2" placeholder="9999" required>
+                    <input type="tel" tabindex="2" name="tel3" placeholder="9999" required>
+                </li>
+                <li><button type="submit" class="radius" tabindex="3" title="Sign Up">Sign Up &rsaquo;</button></li>
+              </ul>
+            </form>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+        <section>
+          <script>
+          function fun(e){
+            if (!('url' in window) && ('webkitURL' in window)) {
+              window.URL = window.webkitURL;
+            }
+            var imgUrl=URL.createObjectURL(e.files[0]);
+            document.getElementById("pic2").src=imgUrl;
+          }
+        </script>
+        <figure>
+          <img id="pic2" style=" 30% 30% no-repeat;background-size: cover">
+        </figure>
+          <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
+        </section>
+
+
+
+
+      </article>
+    </main>
+    <!--main-->
+
+    <!-- Required -->
+    <script src="../static/js/webslides.js"></script>
+
+    <script>
+      window.ws = new WebSlides();
+    </script>
+
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="../static/js/svg-icons.js"></script>
+
+  </body>
+</html>
