@@ -65,6 +65,11 @@
 <section>
 
   <script>
+  function fun(e){
+    alert("ssss");
+
+  }
+
   $(document).ready(
     function(){
       alert("2222");
@@ -78,12 +83,12 @@
           $('#pic2').attr('style','background:url('+ URL.createObjectURL(e.target.files[0]) +') 50% 50% no-repeat;background-size: cover');
 
         });
-        
+
         }
       );
 </script>
 
-  <input type="file" id="camera" name="camera" capture="camera" accept="image/*" /> <br />
+  <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
   <p id="pic2" style="background:url('') 50% 50% no-repeat;background-size: cover"></p>
 </section>
 
