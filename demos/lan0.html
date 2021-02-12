@@ -61,7 +61,25 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
   </head>
-  <script src="/jquery/jquery.js"></script> <script> $(document).ready(function(){ if (!('url' in window) && ('webkitURL' in window)) { window.URL = window.webkitURL; } $('#camera').change(function(e){ $('#pic').attr('src', URL.createObjectURL(e.target.files[0])); }); }); </script>
+<html>
+<section>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+  $(document).ready(
+    function(){
+      if (!('url' in window) && ('webkitURL' in window)) {
+        window.URL = window.webkitURL; }
+        $('#camera').change(function(e){
+          $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+          alert(URL.createObjectURL(e.target.files[0]));
+          $('#pic2').attr('style','background:url('+ URL.createObjectURL(e.target.files[0]) +') 50% 50% no-repeat;background-size: cover');
 
+        });
+        });
+</script>
+
+  <input type="file" id="camera" name="camera" capture="camera" accept="image/*" /> <br />
+  <p id="pic2" style="background:url('') 50% 50% no-repeat;background-size: cover"></p>
+</section>
 
 </html>
