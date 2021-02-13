@@ -69,8 +69,8 @@
             <p class="text-intro"> 몇가지 질문과 현재 피부사진으로 분석을 받을 수 있습니다.</p>
             <form action="/" method="post" class="bg-trans-dark">
               <ul class="flexblock">
-                <li> 이름 <input type="text" tabindex="1" id="name" placeholder="이름을 입력해주세요" required></li>
-                <li> 전화번호<input type="tel" tabindex="2" name="tel1" placeholder="01099999999" required></li>
+                <li> 이름 <input id="name" type="text" tabindex="1" id="name" placeholder="이름을 입력해주세요" required></li>
+                <li> 전화번호<input id="tel" type="tel" tabindex="2" name="tel1" placeholder="01099999999" required></li>
                 <li><button type="button" class="button ghost" tabindex="3" title="Sign Up" onclick="getStarted()">분석 시작하기 &rsaquo;</button></li>
               </ul>
             </form>
@@ -83,6 +83,7 @@
 
         </section>
         <section>
+          <div class="wrap size-50">
           <script>
           function fun(e){
             if (!('url' in window) && ('webkitURL' in window)) {
@@ -92,11 +93,14 @@
             document.getElementById("pic2").src=imgUrl;
           }
         </script>
-
+        <p><strong> 현재 피부상태를 사진찍어 더욱 정확한 분석을 받아보세요. </strong></p>
+        <pre>
         <figure>
           <img id="pic2" style=" 30% 30% no-repeat;background-size: cover">
         </figure>
           <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
+        </pre>
+        </div>
         </section>
 
         <section class="aligncenter" id="q1">
