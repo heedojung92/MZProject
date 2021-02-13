@@ -85,43 +85,33 @@
 
         </section>
         <section>
-          <div class="wrap size-40">
+          <div class="wrap size-50">
             <style>
-            #camera{
-              display: none;
-            }
-            .input-file-button{
-              padding: 6px 25px;
-              background-color:#FF6600;
-              border-radius: 4px;
-              color: white;
-              cursor: pointer;
-            }
-            #beginQue{
-              visibility: hidden;
+            #swipeNext{
+              color: red
             }
             </style>
 
           <script>
-
           function fun(e){
             if (!('url' in window) && ('webkitURL' in window)) {
               window.URL = window.webkitURL;
             }
             var imgUrl=URL.createObjectURL(e.files[0]);
             document.getElementById("pic2").src=imgUrl;
-            document.getElementById("beginQue").style.visibility='visible';
+            document.getElementById("swipeNext").innerHTML='다음으로';
+            document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
           }
         </script>
         <h3 class="text-landing"><b>현재 피부상태 분석</b></h3>
         <p > 사진촬영을 통해 더욱 정확한 분석을 받아보세요.</p>
-        <button id="beginQue" type="button" class="button ghost"  title="Sign Up" >다음으로 &rsaquo;</button>
+        <strong><a id="swipeNext"></a></strong>
         <br>
         <pre>
         <figure>
           <img id="pic2" style=" 30% 30% no-repeat;background-size: cover">
         </figure>
-          <label className="input-file-button" for="camera">사진 촬영</label>
+          <!--<label className="input-file-button" for="camera">사진 촬영</label>-->
           <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
         </pre>
         </div>
