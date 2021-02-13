@@ -70,15 +70,18 @@
             <form action="/" method="post" class="bg-trans-dark">
               <ul class="flexblock">
                 <li> 이름 <br><input type="text" tabindex="1" id="name" placeholder="이름을 입력해주세요" required></li>
-                <li> 전화번호 <br><input type="tel" tabindex="2" name="tel1" placeholder="010" required>
-                    <input type="tel" tabindex="2" name="tel2" placeholder="9999" required>
-                    <input type="tel" tabindex="2" name="tel3" placeholder="9999" required>
-                </li>
-                <li><button type="submit" class="radius" tabindex="3" title="Sign Up">Sign Up &rsaquo;</button></li>
+                <li> 전화번호 <br><input type="tel" tabindex="2" name="tel1" placeholder="01099999999" required></li>
+                <li> 생년월일 <br><input type="date" tabindex="2" placeholder="010" required></li>
+                <li><br><button type="button" class="radius" tabindex="3" title="Sign Up" onclick="getStarted()">분석 시작하기 &rsaquo;</button></li>
               </ul>
             </form>
           </div>
-          <!-- .end .wrap -->
+          <script>
+          function getStarted(){
+            self.location.href="file:///Users/heedojung/Desktop/MZProject/demos/facial_analysis.html#slide=3"
+          }
+          </script>
+
         </section>
         <section>
           <script>
@@ -90,10 +93,170 @@
             document.getElementById("pic2").src=imgUrl;
           }
         </script>
+
         <figure>
           <img id="pic2" style=" 30% 30% no-repeat;background-size: cover">
         </figure>
           <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
+        </section>
+
+        <section class="aligncenter" id="q1">
+          <!--.wrap = container (width: 90%)  slide:4 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q1</h4>
+            <p class="text-intro"><br><strong id="q1_text">세안 후 5분 이내에 피부가 땡겨요. </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a onclick="to_q2(this)"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a onclick="to_q2(this)"><strong> 아니오 &nbsp; &rsaquo;</strong></a></li>
+               </ul>
+             </nav>
+          </div>
+          <script>
+            function to_q2(e){
+              if(e.text.includes('예')){
+                document.getElementById("q2_text").innerHTML = "모공이 작은 편이고 눈에 잘 안 보여요";
+              }else{
+                document.getElementById("q2_text").innerHTML = "모공이 눈으로 잘 보이는 크기에요";
+              }
+              self.location.href="file:///Users/heedojung/Desktop/MZProject/demos/facial_analysis.html#slide=5";
+
+            }
+          </script>
+        </section>
+        <section class="aligncenter">
+          <!--.wrap = container (width: 90%)  slide:6 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q2</h4>
+            <p class="text-intro"><br><strong id="q2_text"> 모공이 눈으로 잘 보이는 크기에요 </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a onclick="to_q3(this)"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a onclick="to_q3(this)"><strong> 아니오 &nbsp; &rsaquo; </strong></a></li>
+               </ul>
+             </nav>
+          </div>
+          <script>
+            function to_q3(e){
+              if(document.getElementById("q2_text").innerHTML.includes('작은')){
+                if(e.text.includes('예')){
+                  document.getElementById("q3_text").innerHTML = "화장품을 바를 때 건조할까봐 많은 양을 발라요";
+                }else{
+                  document.getElementById("q3_text").innerHTML = "좁쌀여드름과 아픈 염증성 여드름이 자주 나요";
+                }
+              }else{
+                if(e.text.includes('예')){
+                  document.getElementById("q3_text").innerHTML = "좁쌀여드름과 아픈 염증성 여드름이 자주 나요";
+                }else{
+                  document.getElementById("q3_text").innerHTML = "얼굴 전반에 피지가 많고 번들거려요";
+                }
+              }
+              self.location.href="file:///Users/heedojung/Desktop/MZProject/demos/facial_analysis.html#slide=6";
+
+            }
+          </script>
+        </section>
+
+        <section class="aligncenter" id="q3">
+          <!--.wrap = container (width: 90%)  slide:4 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q3</h4>
+            <p class="text-intro"><br><strong id="q3_text">세안 후 5분 이내에 피부가 땡겨요. </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a href="#slide=5" target="_self"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a href="#slide=6" target="_self"><strong>아니오 &nbsp; &rsaquo;</strong></a></li>
+               </ul>
+             </nav>
+          </div>
+        </section>
+
+
+
+        <section class="aligncenter">
+          <!--.wrap = container (width: 90%)  slide:5 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q2</h4>
+            <p class="text-intro"><br><strong> 모공이 작은편이고 눈에 잘 안보여요 </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a href="#slide=7" target="_self"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a href="#slide=8" target="_self"><strong>아니오 &nbsp; &rsaquo;</strong></a></li>
+               </ul>
+             </nav>
+          </div>
+        </section>
+
+        <section class="aligncenter">
+          <!--.wrap = container (width: 90%)  slide:6 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q2</h4>
+            <p class="text-intro"><br><strong> 모공이 눈으로 잘 보이는 크기에요 </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a href="#slide=8" target="_self"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a href="#slide=9" target="_self"><strong>아니오 &nbsp; &rsaquo;</strong></a></li>
+               </ul>
+             </nav>
+          </div>
+        </section>
+
+        <section class="aligncenter">
+          <!--.wrap = container (width: 90%)  slide:7 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q3</h4>
+            <p class="text-intro"><br><strong> 화장품을 바를 때 건조할까봐 많은 양을 발라요 </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a href="#slide=5" target="_self"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a href="https://twitter.com/webslides">아니오 &nbsp; &rsaquo;</a></li>
+               </ul>
+             </nav>
+          </div>
+        </section>
+
+        <section class="aligncenter">
+          <!--.wrap = container (width: 90%)  slide:8 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q3</h4>
+            <p class="text-intro"><br><strong> 좁쌀여드름과 아픈 염증성 여드름이 자주 나요 </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a href="#slide=5" target="_self"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a href="https://twitter.com/webslides">아니오 &nbsp; &rsaquo;</a></li>
+               </ul>
+             </nav>
+          </div>
+        </section>
+
+        <section class="aligncenter">
+          <!--.wrap = container (width: 90%)  slide:9 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q3</h4>
+            <p class="text-intro"><br><strong> 얼굴 전반에 피지가 많고 번들거려요 </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a href="#slide=5" target="_self"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a href="https://twitter.com/webslides">아니오 &nbsp; &rsaquo;</a></li>
+               </ul>
+             </nav>
+          </div>
         </section>
 
 
@@ -109,7 +272,6 @@
     <script>
       window.ws = new WebSlides();
     </script>
-
     <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
     <script defer src="../static/js/svg-icons.js"></script>
 
