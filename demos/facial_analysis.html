@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>바른 얼굴보장 분석 서비스</title>
-    <meta name="description" content="MZ Project - NZPL">
+    <meta name="description" content="MZ Project - NJLP">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
 
     <!-- CSS Base -->
@@ -237,6 +237,10 @@
                   document.getElementById("desc").innerHTML=name + " 님은 피부 부위별 유분량이 다르게 타고난 복합성 피부입니다. 다른 피부 타입에 비해 부위별 홈케어를 다르게 해야 해서 신경 쓸 부분이 많을지 모르지만 잘만 관리하면 건성과 지성 피부의 장점을 가진 피부 타입입니다. 보통 복합성 피부는 T존(이마, 코 부위)은 지성 피부에 가깝고 U존(볼, 턱 부위)은 건성 혹은 중성에 가까운 피부를 갖고 있으며 각 부위에 맞는 유수분 밸런스를 잡아주는 것이 건강한 홈케어의 핵심입니다."
                   + "이를테면 크림을 T존에는 적게 바르고, U존에는 더 많이 바를 수 있고, 피지가 많은 T존에는 각질과 피지 정돈을 도와주는 토너를 바르고 U존에는 바르지 않는 등의 부위별 관리가 도움이 될 거예요.";
                 }
+                ;
+                document.getElementById("mypageWelcome").innerHTML = skinType +"인 "+ name + "님을 위한 추천 컨텐츠";
+                document.getElementById("cosmeticsRec").innerHTML = skinType;
+                document.getElementById("hospRec").innerHTML = name;
 
                 self.location.href=location.href.replace('#slide=6','#slide=7');
               };
@@ -250,9 +254,32 @@
           </span><br><br>
           <p id="desc"></p>
           <br><br><br><br><br><br><br><br>
+          <p>
+          </p>
+          </div>
+        </section>
+
+        <section class="aligncenter" >
+          <!--.wrap = container (width: 90%)  slide:4 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing" id="mypageWelcome"></h4>
+            <p>
+              <span id="cosmeticsRec"></span>을 위한 추천 화장품 <br>
+              <span id="hospRec"></span>님을 위한 추천 피부과<br><br><br>
+              <span>혹시 성형에 관심이 있으신가요?</span>
+
+            </p>
+
+               
+                
+
+
           </div>
 
         </section>
+
+
 
 
 
