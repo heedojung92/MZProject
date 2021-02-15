@@ -80,9 +80,11 @@
           var name;
           function getStarted(){
             WebSlides.registerPlugin('scroll',function(){});
-            WebSlides.registerPlugin('slide',function(){});
+
+
             name=document.getElementById("name").value;
-            self.location.href= location.href.replace('#slide=2','#slide=3');
+            //self.location.href= location.href.replace('#slide=2','#slide=3');
+
           }
           </script>
 
@@ -122,7 +124,7 @@
         <br><br><br><br><br>
         </section>
 
-        <section class="aligncenter" id="q1">
+        <section id="q_1" class="aligncenter" >
           <!--.wrap = container (width: 90%)  slide:4 -->
           <div class="wrap size-50">
 
@@ -148,7 +150,7 @@
             }
           </script>
         </section>
-        <section class="aligncenter">
+        <section class="aligncenter" id="q2">
           <!--.wrap = container (width: 90%)  slide:6 -->
           <div class="wrap size-50">
 
@@ -245,13 +247,24 @@
                 document.getElementById("mypageWelcome").innerHTML = skinType +"인 "+ name + "님을 위한 추천 컨텐츠";
                 document.getElementById("cosmeticsRec").innerHTML = skinType;
                 document.getElementById("hospRec").innerHTML = name;
-                document.getElementById("q3_div").style.backgroundImage = "url(loading.gif)";
+                //document.getElementById("loading_div").style.backgroundImage = "url(loading.gif)";
+                self.location.href=location.href.replace('#slide=6','#slide=7');
+
+                setTimeout(function() {
+                  self.location.href=location.href.replace('#slide=7','#slide=8');
+                }, 2500);
 
 
-                //self.location.href=location.href.replace('#slide=6','#slide=7');
+                //self.location.href=location.href.replace('#slide=7','#slide=8');
               };
 
           </script>
+        </section>
+        <section class="bg-white">
+          <span class="background" style="background-image:url('loading.gif')"></span>
+
+
+          </div>
         </section>
 
 
@@ -299,7 +312,10 @@
     <!-- Required -->
     <script src="../static/js/webslides.js"></script>
     <script>
+
       window.ws = new WebSlides();
+
+
     </script>
     <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
     <script defer src="../static/js/svg-icons.js"></script>
