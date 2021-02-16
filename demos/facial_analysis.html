@@ -243,10 +243,19 @@
                 document.getElementById("hospRec").innerHTML = name;
 
                 self.location.href=location.href.replace('#slide=6','#slide=7');
+                setTimeout(function() {
+                  self.location.href=location.href.replace('#slide=7','#slide=8');
+                }, 2500);
               };
 
           </script>
         </section>
+        <section class="bg-white">
+          <span class="background" style="background-image:url('loading.gif')"></span>
+
+          </div>
+        </section>
+
         <section class="bg-white">
           <!--.wrap.longform (width:72rem=720px) = Better reading experience (90-95 characters per line) -->
           <div class="wrap longform">

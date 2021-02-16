@@ -30,7 +30,7 @@
     <meta name="twitter:title" content="WebSlides Landings: Create your web presence easily"> <!-- EDIT -->
     <meta name="twitter:description" content="Create simple, beautiful landing pages with WebSlides. 120+ free slides ready to use."> <!-- EDIT -->
     <meta name="twitter:image" content="../static/images/share-webslides.jpg"> <!-- EDIT -->
-
+    <link rel="stylesheet" href="../assets/css/jquery.rprogessbar.min.css">
     <!-- FAVICONS -->
     <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
     <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">
@@ -39,6 +39,12 @@
     <link rel="apple-touch-icon icon" sizes="152x152" href="../static/images/favicons/favicon-152.png">
     <link rel="apple-touch-icon icon" sizes="180x180" href="../static/images/favicons/favicon-180.png">
     <link rel="apple-touch-icon icon" sizes="192x192" href="../static/images/favicons/favicon-192.png">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+     <script src="../assets/js/jQuery.rProgressbar.min.js"></script>
+     <script src="../assets/js/active.js"></script>
+
 
     <!-- Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -261,10 +267,55 @@
           </script>
         </section>
         <section class="bg-white">
+
           <span class="background" style="background-image:url('loading.gif')"></span>
 
 
           </div>
+        </section>
+
+        <section >
+
+          <div id="test" style="width: 200px; height: 100px">
+            
+          </div>
+        </section>
+        <script>
+            $('#test').rProgressbar({
+              percentage :80
+            });
+          </script>
+
+        <section class="bg-white">
+          <!--.wrap.longform (width:72rem=720px) = Better reading experience (90-95 characters per line) -->
+          <div class="wrap longform">
+            <span><strong id="resName"> </strong> 님은 <span id="skinRes"> </span> 입니다.
+          </span><br><br>
+          <p id="desc"></p>
+          <br><br><br><br><br><br><br><br>
+          <p>
+          </p>
+          </div>
+        </section>
+
+        <section class="aligncenter" >
+          <!--.wrap = container (width: 90%)  slide:4 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing" id="mypageWelcome"></h4>
+            <p>
+              <span id="cosmeticsRec"></span>을 위한 추천 화장품 <br>
+              <span id="hospRec"></span>님을 위한 추천 피부과<br><br><br>
+              <span>혹시 성형에 관심이 있으신가요?</span>
+
+            </p>
+
+
+
+
+
+          </div>
+
         </section>
 
 
@@ -314,9 +365,14 @@
     <script>
 
       window.ws = new WebSlides();
-
-
     </script>
+
+   
+    <script type="text/javascript">
+
+  
+
+</script>
     <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
     <script defer src="../static/js/svg-icons.js"></script>
 
