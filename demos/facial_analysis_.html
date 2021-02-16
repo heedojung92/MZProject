@@ -104,11 +104,12 @@
             </style>
 
           <script>
+          var imgUrl;
           function fun(e){
             if (!('url' in window) && ('webkitURL' in window)) {
               window.URL = window.webkitURL;
             }
-            var imgUrl=URL.createObjectURL(e.files[0]);
+            imgUrl=URL.createObjectURL(e.files[0]);
             document.getElementById("pic2").src=imgUrl;
             document.getElementById("swipeNext").innerHTML='다음으로';
             document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
@@ -258,7 +259,26 @@
 
                 setTimeout(function() {
                   self.location.href=location.href.replace('#slide=7','#slide=8');
-                }, 2500);
+                  $("#res00").attr("src",imgUrl);
+                  $('#res01').rProgressbar({
+                    percentage :80
+                  });
+                  $('#res02').rProgressbar({
+                    percentage :80
+                  });
+                  $('#res03').rProgressbar({
+                    percentage :80
+                  });
+                  $('#res04').rProgressbar({
+                    percentage :80
+                  });
+                  $('#res05').rProgressbar({
+                    percentage :80
+                  });
+
+
+
+                }, 3500);
 
 
                 //self.location.href=location.href.replace('#slide=7','#slide=8');
@@ -274,14 +294,37 @@
           </div>
         </section>
 
-        <section >
-
-          <div id="test" style="width: 200px; height: 100px">
-            
+        <section>
+          <h3 class="text-landing"><b>결과 조회</b></h3>
+          <hr>
+          <pre>
+            <div data-width="100" data-height="100"><img id="res00"></img></div>
+          </pre>
+          <br><br>
+          <pre>
+            수분 <span id="res01"></span>
+            유분 <span id="res02"></span>
+            모공 크기 <span id="res03"></span>
+            피부톤 <span id="res04"></span>
+            주름 <span id="res05"></span>
+          </pre>
           </div>
+          <br><br><br><br><br><br>
         </section>
         <script>
-            $('#test').rProgressbar({
+            $('#res01').rProgressbar({
+              percentage :80
+            });
+            $('#res02').rProgressbar({
+              percentage :80
+            });
+            $('#res03').rProgressbar({
+              percentage :80
+            });
+            $('#res04').rProgressbar({
+              percentage :80
+            });
+            $('#res05').rProgressbar({
               percentage :80
             });
           </script>
@@ -367,10 +410,10 @@
       window.ws = new WebSlides();
     </script>
 
-   
+
     <script type="text/javascript">
 
-  
+
 
 </script>
     <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
