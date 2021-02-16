@@ -58,19 +58,16 @@
       <article id="webslides">
 
 
-        <section class="bg-purple aligncenter">
+        <section class="bg-blue aligncenter">
          <span class="background dark" style="background-image:url('https://source.unsplash.com/C1HhAQrbykQ/')"></span>
-          <!--.wrap = container (width: 90%) -->
           <div class="wrap">
-            <h1 class="text-landing"> 바른 얼굴보장 분석 서비스 </h1>
+            <h1 class="text-landing"> 바른 얼굴보장 서비스 </h1>
             <br/><br/>
             <p class="text-symbols">NJLP</p>
           </div>
-          <!-- .end .wrap -->
         </section>
         <section class="bg-black">
           <span class="background" style="background-image:url('https://source.unsplash.com/p3UCTiZIU6M/')"></span>
-          <!--.wrap = container (width: 90%) -->
           <div class="wrap size-60 aligncenter">
             <h2> 나의 피부 타입과 상태는? </h2>
             <p class="text-intro"> 몇가지 질문과 현재 피부사진으로 분석을 받을 수 있습니다.</p>
@@ -82,12 +79,12 @@
               </ul>
             </form>
           </div>
+          <br><br><br><br><br><br>
           <script>
-          var name;
+          var name="홍길동";
+          var age=30;
           function getStarted(){
             WebSlides.registerPlugin('scroll',function(){});
-
-
             name=document.getElementById("name").value;
             self.location.href= location.href.replace('#slide=2','#slide=3');
 
@@ -110,7 +107,7 @@
               window.URL = window.webkitURL;
             }
             imgUrl=URL.createObjectURL(e.files[0]);
-            document.getElementById("pic2").src=imgUrl;
+            document.getElementById("selfie").src=imgUrl;
             document.getElementById("swipeNext").innerHTML='다음으로';
             document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
           }
@@ -122,7 +119,7 @@
         <br>
         <pre>
         <figure>
-          <img id="pic2" style=" 30% 30% no-repeat;background-size: cover">
+          <img id="selfie" style=" 30% 30% no-repeat;background-size: cover">
         </figure>
           <!--<label className="input-file-button" for="camera">사진 촬영</label>-->
           <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
@@ -132,9 +129,7 @@
         </section>
 
         <section id="q_1" class="aligncenter" >
-          <!--.wrap = container (width: 90%)  slide:4 -->
           <div class="wrap size-50">
-
             <h4 class="text-landing">Q1</h4>
             <p class="text-intro"><br><strong id="q1_text">세안 후 5분 이내에 피부가 땡겨요. </strong><br>
             </p>
@@ -251,58 +246,53 @@
                   + "이를테면 크림을 T존에는 적게 바르고, U존에는 더 많이 바를 수 있고, 피지가 많은 T존에는 각질과 피지 정돈을 도와주는 토너를 바르고 U존에는 바르지 않는 등의 부위별 관리가 도움이 될 거예요.";
                 }
                 ;
-                document.getElementById("mypageWelcome").innerHTML = skinType +"인 "+ name + "님을 위한 추천 컨텐츠";
-                document.getElementById("cosmeticsRec").innerHTML = skinType;
-                document.getElementById("hospRec").innerHTML = name;
+                //document.getElementById("cosmeticsRec").innerHTML = skinType;
+                //document.getElementById("hospRec").innerHTML = name;
                 //document.getElementById("loading_div").style.backgroundImage = "url(loading.gif)";
                 self.location.href=location.href.replace('#slide=6','#slide=7');
 
                 setTimeout(function() {
                   self.location.href=location.href.replace('#slide=7','#slide=8');
                   $("#res00").attr("src",imgUrl);
+                  $("#skinStatus").html(name+" 님의 현재 피부 나이는 <b>"+ age +"</b>세 입니다.");
                   $('#res01').rProgressbar({
-                    percentage :80
+                    percentage : 60
                   });
                   $('#res02').rProgressbar({
-                    percentage :80
+                    percentage : 75
                   });
                   $('#res03').rProgressbar({
-                    percentage :80
+                    percentage : 88
                   });
                   $('#res04').rProgressbar({
-                    percentage :80
+                    percentage : 37
                   });
                   $('#res05').rProgressbar({
-                    percentage :80
+                    percentage : 40
                   });
-
-
-
                 }, 3500);
 
-
-                //self.location.href=location.href.replace('#slide=7','#slide=8');
               };
 
           </script>
         </section>
         <section class="bg-white">
-
           <span class="background" style="background-image:url('loading.gif')"></span>
-
-
-          </div>
         </section>
 
         <section>
-          <h3 class="text-landing"><b>결과 조회</b></h3>
+          <div class="wrap aligncenter fadeInUp">
+
+          <h3 class="text-landing"><b>지금 내 피부 상태는?</b></h3>
+          <p id="skinStatus"></p>
           <hr>
+
           <pre>
             <div data-width="100" data-height="100"><img id="res00"></img></div>
           </pre>
-          <br><br>
+            <hr>
           <pre>
-            수분 <span id="res01"></span>
+            <b>수분</b> <span id="res01"></span>
             유분 <span id="res02"></span>
             모공 크기 <span id="res03"></span>
             피부톤 <span id="res04"></span>
@@ -330,75 +320,15 @@
           </script>
 
         <section class="bg-white">
-          <!--.wrap.longform (width:72rem=720px) = Better reading experience (90-95 characters per line) -->
-          <div class="wrap longform">
+          <div class="wrap longform aligncenter">
             <span><strong id="resName"> </strong> 님은 <span id="skinRes"> </span> 입니다.
-          </span><br><br>
+          </span><hr>
           <p id="desc"></p>
           <br><br><br><br><br><br><br><br>
           <p>
           </p>
           </div>
         </section>
-
-        <section class="aligncenter" >
-          <!--.wrap = container (width: 90%)  slide:4 -->
-          <div class="wrap size-50">
-
-            <h4 class="text-landing" id="mypageWelcome"></h4>
-            <p>
-              <span id="cosmeticsRec"></span>을 위한 추천 화장품 <br>
-              <span id="hospRec"></span>님을 위한 추천 피부과<br><br><br>
-              <span>혹시 성형에 관심이 있으신가요?</span>
-
-            </p>
-
-
-
-
-
-          </div>
-
-        </section>
-
-
-        <section class="bg-white">
-          <!--.wrap.longform (width:72rem=720px) = Better reading experience (90-95 characters per line) -->
-          <div class="wrap longform">
-            <span><strong id="resName"> </strong> 님은 <span id="skinRes"> </span> 입니다.
-          </span><br><br>
-          <p id="desc"></p>
-          <br><br><br><br><br><br><br><br>
-          <p>
-          </p>
-          </div>
-        </section>
-
-        <section class="aligncenter" >
-          <!--.wrap = container (width: 90%)  slide:4 -->
-          <div class="wrap size-50">
-
-            <h4 class="text-landing" id="mypageWelcome"></h4>
-            <p>
-              <span id="cosmeticsRec"></span>을 위한 추천 화장품 <br>
-              <span id="hospRec"></span>님을 위한 추천 피부과<br><br><br>
-              <span>혹시 성형에 관심이 있으신가요?</span>
-
-            </p>
-
-
-
-
-
-          </div>
-
-        </section>
-
-
-
-
-
-
       </article>
     </main>
     <!--main-->
