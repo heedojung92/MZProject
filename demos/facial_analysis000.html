@@ -29,9 +29,9 @@
     function start() {
 
         // Canvas container 생성
-        const container = document.getElementById("imgDiv")
+        const container = document.createElement('div')
         container.style.position = 'relative'
-        //document.getElementById("imgDiv").append(container)
+        document.body.append(container)
         document.body.append('loaded')
 
         imageUpload.addEventListener('change', async () => {
@@ -50,6 +50,7 @@
             const detections = await faceapi.detectAllFaces(image)
                                     .withFaceLandmarks()
                                     .withFaceDescriptors()
+
             // 사진에서 얼굴 좌표에 box를 그린다.
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
             resizedDetections.forEach(detection => {
@@ -65,8 +66,6 @@
   <h3 class="text-landing"><b>현재 피부상태 분석</b></h3>
   <p > 사진촬영을 통해 더욱 정확한 분석을 받아보세요.</p>
   <hr>
-  <div id="imgDiv">
-  </div>
     <input type="file" id="imageUpload">
 </body>
 </html>
