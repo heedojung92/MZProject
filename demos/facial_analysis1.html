@@ -116,17 +116,17 @@
                 // Canvas container 생성
                 const container = document.createElement('div')
                 container.style.position = 'relative'
-                document.getElementById("con").append(container)
+                document.getElementById("con").appendChild(container)
 
                 imageUpload.addEventListener('change', async () => {
 
                     // 사진을 화면에 표시함
                     const image = await faceapi.bufferToImage(imageUpload.files[0])
-                    container.append(image)
+                    container.appendChild(image)
 
                     // canvas를 초기화 한다
                     const canvas = faceapi.createCanvasFromMedia(image)
-                    container.append(canvas)
+                    container.appendChild(canvas)
                     const displaySize = {width: image.width, height: image.height}
                     faceapi.matchDimensions(canvas, displaySize)
 
