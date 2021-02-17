@@ -128,7 +128,7 @@
                     // canvas를 초기화 한다
                     const canvas = faceapi.createCanvasFromMedia(image)
                     container.appendChild(canvas)
-                    const displaySize = {width: image.width/5, height: image.height/5}
+                    const displaySize = {width: image.width, height: image.height}
                     faceapi.matchDimensions(canvas, displaySize)
 
                     // 사진에서 얼굴을 식별한다.
