@@ -175,8 +175,10 @@
 
         <section id="q_1" class="aligncenter" >
           <div class="wrap size-50">
-            <h4 class="text-landing">Q1</h4>
-            <p class="text-intro"><br><strong id="q1_text">세안 후 5분 이내에 피부가 땡겨요. </strong><br>
+            <div class="card-50">
+              <figure><img src="../static/images/angora_1.png" alt="Leonardo da Vinci"></img></figure>
+            <!--<h4 class="text-landing">Q1</h4>-->
+            <p class="text-intro"><br><strong id="q1_text">Q1.&nbsp;세안 후 5분 이내에 피부가 땡겨요. </strong><br>
             </p>
              <nav class="aligncenter">
                <ul>
@@ -184,6 +186,7 @@
                  <li><a onclick="to_q2(this)"><strong> 아니오 &nbsp; &rsaquo;</strong></a></li>
                </ul>
              </nav>
+           </div>
           </div>
           <script>
             function to_q2(e){
@@ -393,13 +396,12 @@
             </pre>
             <hr>
             <pre>
-            <span><input type="radio" id="op1" name="drone" value="op1" > <label for="op1">수분</label> <input type="radio" id="op2" name="drone" value="op2" checked> <label for="op2">유분</label>
-            <input type="radio" id="op3" name="drone" value="op3" checked> <label for="op2">모공</label> <input type="radio" id="op4" name="drone" value="op4" checked> <label for="op2">거칠기</label> <input type="radio" id="op5" name="drone" value="op5" checked> <label for="op2">주름</label></span>
           <!--<div id="chartContainer" style="height: 300px; width: 100%;">
           </div> -->
           <div>
     <canvas id="myChart"></canvas>
 </div>
+</pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
