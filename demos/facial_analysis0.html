@@ -156,7 +156,7 @@
               window.URL = window.webkitURL;
             }
             var imgUrl=URL.createObjectURL(e.files[0]);
-            document.getElementById("pic2").src=imgUrl;
+            document.getElementById("picture").src=imgUrl;
 
 
             document.getElementById("swipeNext").innerHTML='다음으로';
@@ -171,7 +171,7 @@
         <br>
         <pre>
         <figure>
-          <img id="pic2" style=" 30% 30% no-repeat;background-size: cover">
+          <img class="pic" id="picture" style=" 30% 30% no-repeat;background-size: cover">
         </figure>
           <!--<label className="input-file-button" for="camera">사진 촬영</label>-->
           <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
