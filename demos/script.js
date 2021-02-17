@@ -11,6 +11,7 @@ function start() {
     // Canvas container 생성
     const container = document.getElementById("imgDiv");
     container.style.position = 'relative'
+    //270 480
     document.body.append('loaded')
 
     imageUpload.addEventListener('change', async () => {

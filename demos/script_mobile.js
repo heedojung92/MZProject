@@ -9,12 +9,11 @@ Promise.all([
 function start() {
 
     // Canvas container 생성
-    const container = document.createElement('div')
+    const container = document.getElementById("imgDiv");
     container.style.position = 'relative'
-    document.body.append(container)
-    document.body.append('loaded')
 
     imageUpload.addEventListener('change', async () => {
+
 
         // 사진을 화면에 표시함
         const image = await faceapi.bufferToImage(imageUpload.files[0])
@@ -23,7 +22,7 @@ function start() {
         // canvas를 초기화 한다
         const canvas = faceapi.createCanvasFromMedia(image)
         container.append(canvas)
-        const displaySize = {width: image.width, height: image.height}
+        const displaySize = {width: canvas.width, height: canvas.height}
         faceapi.matchDimensions(canvas, displaySize)
 
         // 사진에서 얼굴을 식별한다.
