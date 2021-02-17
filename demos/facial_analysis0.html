@@ -91,21 +91,80 @@
             #swipeNext{
               color: red
             }
-            </style>
 
+            .face {
+                position: absolute;
+                border: 2px solid #ff3333;
+            }
+            </style>
+            <script type="text/javascript" src="dist/jquery.facedetection.min.js"></script>
           <script>
+          $(function () {
+
+              "use strict";
+              var clicked = 0;
+
+             $(window).resize(function(e){
+                  //e.preventDefault();
+                  if(clicked == 1){
+                      faceDetaction();
+                  }
+              });
+
+             $('#startButton').click(function(e){
+
+                  e.preventDefault();
+                  clicked = 1
+                  //console.log('click');
+                  faceDetaction();
+                  alert("end");
+              });
+
+
+              function faceDetaction(){
+                  $('.face').remove();//기존의 박스를 지우고
+                  $('.pic').faceDetection({
+                      complete: function(faces){
+                          //console.log(faces);
+
+                         for (var i = 0; i < faces.length; i++) {
+                              $('<div>', {
+                                  'class':'face',
+                                  'css': {
+                                      'position': 'absolute',
+                                      'left':     faces[i].positionX + 'px',
+                                      'top':      faces[i].positionY + 'px',
+                                      'width':    faces[i].width  * faces[i].scaleX + 'px',
+                                      'height':   faces[i].height * faces[i].scaleY + 'px'
+                                  }
+                              })
+                              .insertAfter(this);
+                          }
+
+                     }, error: function(code, message){
+                          console.log("Error: " + message);
+                      }
+
+                 });
+              }
+
+         });
+
           function fun(e){
             if (!('url' in window) && ('webkitURL' in window)) {
               window.URL = window.webkitURL;
             }
             var imgUrl=URL.createObjectURL(e.files[0]);
             document.getElementById("pic2").src=imgUrl;
+
+
             document.getElementById("swipeNext").innerHTML='다음으로';
-            document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
+            //document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
           }
         </script>
         <h3 class="text-landing"><b>현재 피부상태 분석</b></h3>
         <p > 사진촬영을 통해 더욱 정확한 분석을 받아보세요.</p>
+        <button id="startButton">얼굴인식 시작</button>
         <strong><a id="swipeNext"></a></strong>
         <br>
         <br>
