@@ -75,6 +75,7 @@
               </ul>
             </form>
           </div>
+
           <script>
           var name="홍길동";
           function getStarted(){
@@ -92,7 +93,8 @@
               color: red
             }
             </style>
-
+            <script defer src="face-api.min.js"></script>
+            <script defer src="script.js"></script>
           <script>
           function fun(e){
             if (!('url' in window) && ('webkitURL' in window)) {
@@ -100,6 +102,51 @@
             }
             var imgUrl=URL.createObjectURL(e.files[0]);
             document.getElementById("pic2").src=imgUrl;
+
+            const imageUpload = document.getElementById('imageUpload')
+
+            Promise.all([
+                faceapi.nets.faceRecognitionNet.loadFromUri('./models'),
+                faceapi.nets.faceLandmark68Net.loadFromUri('./models'),
+                faceapi.nets.ssdMobilenetv1.loadFromUri('./models')
+            ]).then(start)
+
+            function start() {
+
+                // Canvas container 생성
+                const container = document.createElement('div')
+                container.style.position = 'relative'
+                document.getElementById("con").append(container)
+
+                imageUpload.addEventListener('change', async () => {
+
+                    // 사진을 화면에 표시함
+                    const image = await faceapi.bufferToImage(imageUpload.files[0])
+                    container.append(image)
+
+                    // canvas를 초기화 한다
+                    const canvas = faceapi.createCanvasFromMedia(image)
+                    container.append(canvas)
+                    const displaySize = {width: image.width, height: image.height}
+                    faceapi.matchDimensions(canvas, displaySize)
+
+                    // 사진에서 얼굴을 식별한다.
+                    const detections = await faceapi.detectAllFaces(image)
+                                            .withFaceLandmarks()
+                                            .withFaceDescriptors()
+
+                    // 사진에서 얼굴 좌표에 box를 그린다.
+                    const resizedDetections = faceapi.resizeResults(detections, displaySize)
+                    resizedDetections.forEach(detection => {
+                        const box = detection.detection.box
+                        const drawBox = new faceapi.draw.DrawBox(box, {label: 'Face'})
+                        drawBox.draw(canvas)
+                    })
+                })
+            }
+
+
+
             document.getElementById("swipeNext").innerHTML='다음으로';
             document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
           }
@@ -109,12 +156,12 @@
         <strong><a id="swipeNext"></a></strong>
         <br>
         <br>
-        <pre>
+        <pre id="con">
         <figure>
           <img id="pic2" style=" 30% 30% no-repeat;background-size: cover">
         </figure>
           <!--<label className="input-file-button" for="camera">사진 촬영</label>-->
-          <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
+          <input type="file" id="imageUpload">
         </pre>
         </div>
         <br><br><br><br><br>
