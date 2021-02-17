@@ -44,20 +44,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
      <script src="../assets/js/jQuery.rProgressbar.min.js"></script>
      <script src="../assets/js/active.js"></script>
-
-
-    <!-- Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
   </head>
   <body>
-    <header role="banner">
-    </header>
     <main role="main">
-
       <article id="webslides">
-
-
         <section class="bg-blue aligncenter">
          <span class="background dark" style="background-image:url('https://source.unsplash.com/C1HhAQrbykQ/')"></span>
           <div class="wrap">
@@ -75,25 +67,78 @@
               <ul class="flexblock">
                 <li> 이름 <input id="name" type="text" tabindex="1" id="name" placeholder="이름을 입력해주세요" required></li>
                 <li> 전화번호<input id="tel" type="tel" tabindex="2" name="tel1" placeholder="01099999999" required></li>
+                <li> 생년월일<input id="birth" type="number" tabindex="2" name="tel1" placeholder=YYYYMMDD required></li>
                 <li><button type="button" class="button ghost" tabindex="3" title="Sign Up" onclick="getStarted()">분석 시작하기 &rsaquo;</button></li>
               </ul>
             </form>
           </div>
           <br><br><br><br><br><br>
           <script>
+          var jsonData = {
+            "op1": [
+              { "x": "2016-6-25 12:58:52", "y": 56 },
+              { "x": "2016-7-25 13:33:23", "y": 70},
+              { "x": "2016-8-25 13:49:18", "y": 75 },
+              { "x": "2016-9-25 13:55:01", "y": 80 },
+              { "x": "2016-10-25 14:00:15", "y": 69 },
+            ],
+            "op2": [
+               { "x": "2016-6-25 12:58:52", "y": 19.99 },
+               { "x": "2016-7-25 13:33:23", "y": 21.78 },
+               { "x": "2016-8-25 13:49:18", "y": 23.45 },
+               { "x": "2016-9-25 13:55:01", "y": 24.73 },
+               { "x": "2016-10-25 14:00:15", "y": 26.58 }
+            ],
+            "op3": [
+              { "x": "2016-6-25 12:58:52", "y": 27.66 },
+              { "x": "2016-7-25 13:33:23", "y": 28.68 },
+              { "x": "2016-8-25 13:49:18", "y": 30.73 },
+              { "x": "2016-9-25 13:55:01", "y": 32.46 },
+              { "x": "2016-10-25 14:00:15", "y": 34.79 }
+            ],
+            "op4": [
+              { "x": "2016-6-25 12:58:52", "y": 10.22 },
+              { "x": "2016-7-25 13:33:23", "y": 11.14 },
+              { "x": "2016-8-25 13:49:18", "y": 15.25 },
+              { "x": "2016-9-25 13:55:01", "y": 19.99 },
+              { "x": "2016-10-25 14:00:15", "y": 21.78 }
+            ],
+            "op5": [
+              { "x": "2016-6-25 12:58:52", "y": 24.73 },
+              { "x": "2016-7-25 13:33:23", "y": 26.58 },
+              { "x": "2016-8-25 13:49:18", "y": 27.66 },
+              { "x": "2016-9-25 13:55:01", "y": 28.68 },
+              { "x": "2016-10-25 14:00:15", "y": 32.46 }
+          ]}
           var name="홍길동";
           var age=30;
           function getStarted(){
-            WebSlides.registerPlugin('scroll',function(){});
             name=document.getElementById("name").value;
             self.location.href= location.href.replace('#slide=2','#slide=3');
-
           }
+          var dataPoints=[];
+          var options = {
+	           animationEnabled: true,
+	            axisX: {
+  	             valueFormatString: "D/MM h:mm",
+                 intervalType: 'month',
+                 interval: 1
+               },
+	              data: [{
+                  showInLegend: true,
+                  type: 'column',
+                  xValueType: "dateTime",
+                  showInLegend: true,
+                  name: "series1",
+                  legendText: "EnergykWh",
+                  dataPoints: dataPoints // this should contain only specific serial number data
+	               }]
+            };
           </script>
 
         </section>
         <section>
-          <div class="wrap size-50">
+          <div class="wrap size-50 aligncenter">
             <style>
             #swipeNext{
               color: red
@@ -102,6 +147,7 @@
 
           <script>
           var imgUrl;
+          var chart;
           function fun(e){
             if (!('url' in window) && ('webkitURL' in window)) {
               window.URL = window.webkitURL;
@@ -121,7 +167,6 @@
         <figure>
           <img id="selfie" style=" 30% 30% no-repeat;background-size: cover">
         </figure>
-          <!--<label className="input-file-button" for="camera">사진 촬영</label>-->
           <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
         </pre>
         </div>
@@ -283,7 +328,7 @@
         <section>
           <div class="wrap aligncenter fadeInUp">
 
-          <h3 class="text-landing"><b>지금 내 피부 상태는?</b></h3>
+          <h3 class="text-landing"><b>지금 내 피부 점수는?</b></h3>
           <p id="skinStatus"></p>
           <hr>
 
@@ -295,8 +340,16 @@
             <b>수분</b> <span id="res01"></span>
             유분 <span id="res02"></span>
             모공 크기 <span id="res03"></span>
-            피부톤 <span id="res04"></span>
+            거칠기 <span id="res04"></span>
             주름 <span id="res05"></span>
+            오늘의 피부점수
+            <nav class="aligncenter">
+              <ul>
+                <li><a href="#" class="button radius" title="Button"><strong>&nbsp;결과 공유&nbsp;&rsaquo; </strong></a></li>
+                <li><a href="#" class="button radius" ><strong>&nbsp;분석 내용&nbsp;&rsaquo;</strong></a></li>
+              </ul>
+            </nav>
+
           </pre>
           </div>
           <br><br><br><br><br><br>
@@ -323,12 +376,161 @@
           <div class="wrap longform aligncenter">
             <span><strong id="resName"> </strong> 님은 <span id="skinRes"> </span> 입니다.
           </span><hr>
+          <pre>
           <p id="desc"></p>
+          <a href="#" class="button radius" title="Button">&nbsp;피부 다이어리 (회원 기능)&nbsp;&rsaquo;</a></li>
+        </pre>
           <br><br><br><br><br><br><br><br>
           <p>
           </p>
           </div>
         </section>
+        <section>
+          <h3 class="text-landing aligncenter"><b>홍길동님의 피부 다이어리(예시 화면)</b></h3>
+          <hr>
+
+          <div class="aligncenter">
+            <pre>
+              <span class="aligncenter">출석현황 <span id="res06"></span></span>
+            </pre>
+            <hr>
+            <pre>
+            <span><input type="radio" id="op1" name="drone" value="op1" > <label for="op1">수분</label> <input type="radio" id="op2" name="drone" value="op2" checked> <label for="op2">유분</label>
+            <input type="radio" id="op3" name="drone" value="op3" checked> <label for="op2">모공</label> <input type="radio" id="op4" name="drone" value="op4" checked> <label for="op2">거칠기</label> <input type="radio" id="op5" name="drone" value="op5" checked> <label for="op2">주름</label></span>
+          <div id="chartContainer" style="height: 300px; width: 100%;">
+          </div>
+          <div style="width:800px">
+    <canvas id="myChart"></canvas>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+/*
+- Chart를 생성하면서,
+- ctx를 첫번째 argument로 넘겨주고,
+- 두번째 argument로 그림을 그릴때 필요한 요소들을 모두 넘겨줍니다.
+*/
+var myChart = new Chart(ctx, {
+type: 'bar',
+data: {
+    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]
+},
+options: {
+    maintainAspectRatio: true, // default value. false일 경우 포함된 div의 크기에 맞춰서 그려짐.
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
+}
+});
+
+</script>
+        </pre>
+        </section>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js">
+        </script>
+
+        <script>
+        $('#res06').rProgressbar({
+          percentage :40
+        });
+
+        window.onload = function () {
+    chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+        text: ""
+    },
+    axisX:{
+        title: "일자",
+        gridThickness: 1
+    },
+    axisY: {
+        title: "피부 점수"
+    },
+    data: [
+    {
+        type: "line",
+        dataPoints: [//array
+        { x: new Date(2012, 01, 1), y: 26},
+        { x: new Date(2012, 01, 3), y: 38},
+        { x: new Date(2012, 01, 5), y: 43},
+        { x: new Date(2012, 01, 7), y: 29},
+        { x: new Date(2012, 01, 11), y: 41},
+        { x: new Date(2012, 01, 13), y: 54},
+        { x: new Date(2012, 01, 20), y: 66},
+        { x: new Date(2012, 01, 21), y: 60},
+        { x: new Date(2012, 01, 25), y: 53},
+        { x: new Date(2012, 01, 27), y: 60}
+
+        ]
+    }
+    ]
+});
+
+    chart.render();
+}
+function changeData(e){
+
+  chart = new CanvasJS.Chart("chartContainer",
+  {
+    title:{
+      text: "Simple Date-Time Chart"
+  },
+  axisX:{
+      title: "timeline",
+      gridThickness: 2
+  },
+  axisY: {
+      title: "Downloads"
+  },
+  data: [
+  {
+      type: "area",
+      dataPoints: [//array
+      { x: new Date(2012, 01, 1), y: 26},
+      { x: new Date(2012, 01, 3), y: 38},
+      { x: new Date(2012, 01, 5), y: 43},
+      { x: new Date(2012, 01, 7), y: 29},
+      { x: new Date(2012, 01, 11), y: 41},
+      { x: new Date(2012, 01, 13), y: 54},
+      { x: new Date(2012, 01, 20), y: 66},
+      { x: new Date(2012, 01, 21), y: 60},
+      { x: new Date(2012, 01, 25), y: 53},
+      { x: new Date(2012, 01, 27), y: 60}
+
+      ]
+  }
+  ]
+});
+
+  chart.render();
+}
+        </script>
       </article>
     </main>
     <!--main-->
@@ -336,18 +538,12 @@
     <!-- Required -->
     <script src="../static/js/webslides.js"></script>
     <script>
-
+      WebSlides.registerPlugin('scroll',function(){});
       window.ws = new WebSlides();
     </script>
-
-
     <script type="text/javascript">
-
-
-
-</script>
+    </script>
     <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
     <script defer src="../static/js/svg-icons.js"></script>
-
   </body>
 </html>
