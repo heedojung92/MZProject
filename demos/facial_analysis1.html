@@ -116,7 +116,7 @@
                 // Canvas container 생성
                 const container = document.createElement('div')
                 container.style.position = 'relative'
-                document.getElementById("con").append(container)
+                document.getElementById("con").appendChild(container)
 
                 imageUpload.addEventListener('change', async () => {
 
@@ -145,10 +145,8 @@
                 })
             }
 
-
-
             document.getElementById("swipeNext").innerHTML='다음으로';
-            document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
+            //document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
           }
         </script>
         <h3 class="text-landing"><b>현재 피부상태 분석</b></h3>
