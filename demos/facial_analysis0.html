@@ -44,6 +44,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
   </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <body>
     <header role="banner">
     </header>
@@ -99,7 +100,7 @@
             </style>
             <script type="text/javascript" src="dist/jquery.facedetection.min.js"></script>
           <script>
-
+          $(function () {
 
               "use strict";
               var clicked = 0;
@@ -148,7 +149,7 @@
                  });
               }
 
-
+         });
 
           function fun(e){
             if (!('url' in window) && ('webkitURL' in window)) {
