@@ -9,8 +9,9 @@ Promise.all([
 function start() {
 
     // Canvas container 생성
-    const container = document.getElementById("imgDiv");
+    const container = document.createElement('div')
     container.style.position = 'relative'
+    document.body.append(container)
     document.body.append('loaded')
 
     imageUpload.addEventListener('change', async () => {

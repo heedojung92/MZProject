@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
+    <style>
+        body {
+            margin:0; padding:0;
+            display:flex; justify-content:center; align-items:center; flex-direction:column;
+        }
+        canvas {
+            position:absolute; top:0; left:0;
+        }
+    </style>
+    <script defer src="face-api.min.js"></script>
+    <script defer src="script.js"></script> 
+
+</head>
+<body>
+  <h3 class="text-landing"><b>현재 피부상태 분석</b></h3>
+  <p > 사진촬영을 통해 더욱 정확한 분석을 받아보세요.</p>
+  <hr>
+  <div id="imgDiv">
+  </div>
+    <input type="file" id="imageUpload">
+</body>
+</html>
