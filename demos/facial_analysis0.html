@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>바른 얼굴보장 서비스</title>
+    <meta name="description" content="MZ Project - NJLP">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- CSS Base -->
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
+
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/svg-icons.css">
+
+    <!-- SOCIAL CARDS (ADD YOUR INFO) -->
+
+    <!-- FACEBOOK -->
+    <meta property="og:url" content="http://your-url.com/permalink"> <!-- EDIT -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="WebSlides Landings: Create your web presence easily"> <!-- EDIT -->
+    <meta property="og:description" content="Create simple, beautiful landing pages with WebSlides. 120+ free slides ready to use."> <!-- EDIT -->
+    <meta property="og:updated_time" content="2017-01-04T16:54:27"> <!-- EDIT -->
+    <meta property="og:image" content="../static/images/share-webslides.jpg" > <!-- EDIT -->
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@webslides"> <!-- EDIT -->
+    <meta name="twitter:creator" content="@jlantunez"> <!-- EDIT -->
+    <meta name="twitter:title" content="WebSlides Landings: Create your web presence easily"> <!-- EDIT -->
+    <meta name="twitter:description" content="Create simple, beautiful landing pages with WebSlides. 120+ free slides ready to use."> <!-- EDIT -->
+    <meta name="twitter:image" content="../static/images/share-webslides.jpg"> <!-- EDIT -->
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
+    <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">
+    <link rel="apple-touch-icon icon" sizes="76x76" href="../static/images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon icon" sizes="120x120" href="../static/images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon icon" sizes="152x152" href="../static/images/favicons/favicon-152.png">
+    <link rel="apple-touch-icon icon" sizes="180x180" href="../static/images/favicons/favicon-180.png">
+    <link rel="apple-touch-icon icon" sizes="192x192" href="../static/images/favicons/favicon-192.png">
+
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+  </head>
+  <body>
+    <header role="banner">
+    </header>
+    <main role="main">
+      <article id="webslides">
+
+
+        <section class="bg-blue aligncenter">
+         <span class="background dark" style="background-image:url('https://source.unsplash.com/C1HhAQrbykQ/')"></span>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap">
+            <h1 class="text-landing"> 바른 얼굴보장 분석 서비스 </h1>
+            <br/><br/>
+            <p class="text-symbols">NJLP</p>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+        <section class="bg-black">
+          <span class="background" style="background-image:url('https://source.unsplash.com/p3UCTiZIU6M/')"></span>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap size-60 aligncenter">
+            <h2> 나의 피부 타입과 상태는? </h2>
+            <p class="text-intro"> 몇가지 질문과 현재 피부사진으로 분석을 받을 수 있습니다.</p>
+            <form action="/" method="post" class="bg-trans-dark">
+              <ul class="flexblock">
+                <li> 이름 <input id="name" type="text" tabindex="1" id="name" placeholder="이름을 입력해주세요" required></li>
+                <li> 전화번호<input id="tel" type="tel" tabindex="2" name="tel1" placeholder="01099999999" required></li>
+                <li><button type="button" class="button ghost" tabindex="3" title="Sign Up" onclick="getStarted()">분석 시작하기 &rsaquo;</button></li>
+              </ul>
+            </form>
+          </div>
+          <script>
+          var name="홍길동";
+          function getStarted(){
+            name=document.getElementById("name").value;
+            self.location.href= location.href.replace('#slide=2','#slide=3');
+            window.ws.navigateOnScroll=false;
+          }
+          </script>
+
+        </section>
+        <section>
+          <div class="wrap size-50">
+            <style>
+            #swipeNext{
+              color: red
+            }
+            </style>
+
+          <script>
+          function fun(e){
+            if (!('url' in window) && ('webkitURL' in window)) {
+              window.URL = window.webkitURL;
+            }
+            var imgUrl=URL.createObjectURL(e.files[0]);
+            document.getElementById("pic2").src=imgUrl;
+            document.getElementById("swipeNext").innerHTML='다음으로';
+            document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
+          }
+        </script>
+        <h3 class="text-landing"><b>현재 피부상태 분석</b></h3>
+        <p > 사진촬영을 통해 더욱 정확한 분석을 받아보세요.</p>
+        <strong><a id="swipeNext"></a></strong>
+        <br>
+        <br>
+        <pre>
+        <figure>
+          <img id="pic2" style=" 30% 30% no-repeat;background-size: cover">
+        </figure>
+          <!--<label className="input-file-button" for="camera">사진 촬영</label>-->
+          <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="fun(this)"/> <br />
+        </pre>
+        </div>
+        <br><br><br><br><br>
+        </section>
+
+        <section class="aligncenter" id="q1">
+          <!--.wrap = container (width: 90%)  slide:4 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q1</h4>
+            <p class="text-intro"><br><strong id="q1_text">세안 후 5분 이내에 피부가 땡겨요. </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a onclick="to_q2(this)"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a onclick="to_q2(this)"><strong> 아니오 &nbsp; &rsaquo;</strong></a></li>
+               </ul>
+             </nav>
+          </div>
+          <script>
+            function to_q2(e){
+              if(e.text.includes('예')){
+                document.getElementById("q2_text").innerHTML = "모공이 작은 편이고 눈에 잘 안 보여요";
+              }else{
+                document.getElementById("q2_text").innerHTML = "모공이 눈으로 잘 보이는 크기에요";
+              }
+              self.location.href=location.href.replace('#slide=4','#slide=5');
+
+            }
+          </script>
+        </section>
+        <section class="aligncenter">
+          <!--.wrap = container (width: 90%)  slide:6 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q2</h4>
+            <p class="text-intro"><br><strong id="q2_text"> 모공이 눈으로 잘 보이는 크기에요 </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a onclick="to_q3(this)"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a onclick="to_q3(this)"><strong> 아니오 &nbsp; &rsaquo; </strong></a></li>
+               </ul>
+             </nav>
+          </div>
+          <script>
+            function to_q3(e){
+              if(document.getElementById("q2_text").innerHTML.includes('작은')){
+                if(e.text.includes('예')){
+                  document.getElementById("q3_text").innerHTML = "화장품을 바를 때 건조할까봐 많은 양을 발라요";
+                }else{
+                  document.getElementById("q3_text").innerHTML = "좁쌀여드름과 아픈 염증성 여드름이 자주 나요";
+                }
+              }else{
+                if(e.text.includes('예')){
+                  document.getElementById("q3_text").innerHTML = "좁쌀여드름과 아픈 염증성 여드름이 자주 나요";
+                }else{
+                  document.getElementById("q3_text").innerHTML = "얼굴 전반에 피지가 많고 번들거려요";
+                }
+              }
+              self.location.href=location.href.replace('#slide=5','#slide=6');
+
+            }
+          </script>
+        </section>
+
+        <section class="aligncenter" id="q3">
+          <!--.wrap = container (width: 90%)  slide:4 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing">Q3</h4>
+            <p class="text-intro"><br><strong id="q3_text">화장품을 바를 때 건조할까봐 많은 양을 발라요 </strong><br>
+            </p>
+             <nav class="aligncenter">
+               <ul>
+                 <li><a onclick="getRes(this)" target="_self"><strong> 예 &nbsp; &rsaquo; </strong></a></li>
+                 <li><a onclick="getRes(this)" target="_self"><strong>아니오 &nbsp; &rsaquo;</strong></a></li>
+               </ul>
+             </nav>
+          </div>
+          <script>
+            var skinType="건성 피부타입";
+            var typeNo=1;
+              function getRes(e){
+                if(document.getElementById("q3_text").innerHTML.includes('화장품')){
+                  if(e.text.includes('예')){
+                    skinType="건성 피부타입";
+                    typeNo=1;
+                  }else{
+                    skinType="중성 피부타입";
+                    typeNo=2;
+                  }
+                }else if(document.getElementById("q3_text").innerHTML.includes('좁쌀')){
+                  if(e.text.includes('예')){
+                    skinType="지성 피부타입";
+                    typeNo=3;
+                  }else{
+                    skinType="중성 피부타입";
+                    typeNo=2;
+                  }
+                }else{
+                  if(e.text.includes('예')){
+                    skinType="지성 피부타입";
+                    typeNo=3;
+                  }else{
+                    skinType="복합성 피부타입";
+                    typeNo=4;
+                  }
+                }
+                document.getElementById("skinRes").innerHTML=skinType;
+                document.getElementById("resName").innerHTML=name;
+                if(typeNo==1){
+                  document.getElementById("desc").innerHTML=name+ " 님은 타고난 유분량이 부족하여 쉽게 건조함을 느끼는 건성 피부입니다. 피부가 스스로 만들어내는 유분, 피지의 양과 유분 보호막이 부족한 건성 피부 타입은 수분 증발을 막기 어려워서 수분까지 같이 부족해지기 쉽습니다. 그렇게 되면 피부 장벽이 약해지기에 건성이면서 민감성인 피부가 많아요. 이 피부 타입은 가을, 겨울, 봄(특히 자는 사이 수분이 증발하는 밤)에 보습에 신경을 써야 합니다. 장벽 강화를 돕는 세럼이나 크림, 밤 등으로 매일 피부 겉 보습막을 단단히 형성해주는 것은 건성 피부에게 색소나 주름 고민을 자연스럽게 예방해주는 습관입니다. ";
+                }else if(typeNo==2){
+                  document.getElementById("desc").innerHTML=name+" 님은 적절한 유분량을 가진 중성 피부입니다. 아마도 평생 피부과에 갈 일 없이 집에서 기본만 잘 지키며 관리해도 좋은 피부 상태를 유지할 수 있는 건강한 피부 타입인데요. (참, 지성 피부가 나이가 들면서 피지분비량이 줄어들어 중성 피부로 수렴하는 경우도 있어요.) 중성 피부 타입은 홈케어를 통해 본인에게 적절한 유수분 밸런스를 유지하면서 선크림을 잘 발라서 노화의 원인을 제공할 수 있는 자외선으로부터 스스로를 잘 지키기만 해도 충분합니다." +
+                   "이따금씩 각질이 너무 쌓이면 각질 정돈 토너를 바르고, 휴가 이후 색소가 올라오면 비타민 미백 앰플을 바르는 등의 관리를 한다면 피부가 더 없이 건강한 광채로 보답할 거예요!";
+                }else if (typeNo==3) {
+                  document.getElementById("desc").innerHTML=name + " 님은 타고난 유분량이 충분한 지성 피부입니다. 피부가 스스로 만들어내는 유분, 피지의 양이 선천적으로 많은 지성 피부 타입은 이 약산성 유분 보호막 덕분에 수분 부족 증상이 어느 정도 예방되어 건성 피부보다 건강한 피부 상태를 유지하기 쉽습니다. 하지만 냉난방, 물을 적게 마시는 등 생활습관 때문에 수분이 증발되어 속건조를 느끼는 수분 부족형 지성 타입이 될 수 있어요." +
+                        "수분이 부족해지면 우리 피부가 이를 보완하기 위해 안 좋은 피지를 만들어낼 수 있으니 평소 습관과 수분 공급에 신경 써야 해요. 또 많은 피지량과 함께 각질이 모공 입구를 잘 막는 경향을 타고난 경우, 트러블로 이어지기 쉬우니 토너로 피지와 각질을 잘 관리하고 화장품으로 적절한 유수분 밸런스를 맞춰주도록 선택하고, 유분이 많은 제품(크림, 밤, 오일 등)의 사용량에 주의해야 합니다. 자신에게 편안한 주기로 피지와 각질을 정돈해주는 것은 지성 피부가 피부 고민을 예방하도록 도와주는 습관입니다."
+                }else{
+                  document.getElementById("desc").innerHTML=name + " 님은 피부 부위별 유분량이 다르게 타고난 복합성 피부입니다. 다른 피부 타입에 비해 부위별 홈케어를 다르게 해야 해서 신경 쓸 부분이 많을지 모르지만 잘만 관리하면 건성과 지성 피부의 장점을 가진 피부 타입입니다. 보통 복합성 피부는 T존(이마, 코 부위)은 지성 피부에 가깝고 U존(볼, 턱 부위)은 건성 혹은 중성에 가까운 피부를 갖고 있으며 각 부위에 맞는 유수분 밸런스를 잡아주는 것이 건강한 홈케어의 핵심입니다."
+                  + "이를테면 크림을 T존에는 적게 바르고, U존에는 더 많이 바를 수 있고, 피지가 많은 T존에는 각질과 피지 정돈을 도와주는 토너를 바르고 U존에는 바르지 않는 등의 부위별 관리가 도움이 될 거예요.";
+                }
+                ;
+                document.getElementById("mypageWelcome").innerHTML = skinType +"인 "+ name + "님을 위한 추천 컨텐츠";
+                document.getElementById("cosmeticsRec").innerHTML = skinType;
+                document.getElementById("hospRec").innerHTML = name;
+
+                self.location.href=location.href.replace('#slide=6','#slide=7');
+                setTimeout(function() {
+                  self.location.href=location.href.replace('#slide=7','#slide=8');
+                }, 2500);
+              };
+
+          </script>
+        </section>
+        <section class="bg-white">
+          <span class="background" style="background-image:url('loading.gif')"></span>
+
+          </div>
+        </section>
+
+        <section class="bg-white">
+          <!--.wrap.longform (width:72rem=720px) = Better reading experience (90-95 characters per line) -->
+          <div class="wrap longform">
+            <span><strong id="resName"> </strong> 님은 <span id="skinRes"> </span> 입니다.
+          </span><br><br>
+          <p id="desc"></p>
+          <br><br><br><br><br><br><br><br>
+          <p>
+          </p>
+          </div>
+        </section>
+
+        <section class="aligncenter" >
+          <!--.wrap = container (width: 90%)  slide:4 -->
+          <div class="wrap size-50">
+
+            <h4 class="text-landing" id="mypageWelcome"></h4>
+            <p>
+              <span id="cosmeticsRec"></span>을 위한 추천 화장품 <br>
+              <span id="hospRec"></span>님을 위한 추천 피부과<br><br><br>
+              <span>혹시 성형에 관심이 있으신가요?</span>
+
+            </p>
+
+
+
+
+
+          </div>
+
+        </section>
+
+
+
+
+
+
+      </article>
+    </main>
+    <!--main-->
+
+    <!-- Required -->
+    <script src="../static/js/webslides.js"></script>
+
+    <script>
+      window.ws = new WebSlides();
+    </script>
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="../static/js/svg-icons.js"></script>
+
+  </body>
+</html>
