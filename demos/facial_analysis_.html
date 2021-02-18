@@ -309,7 +309,6 @@
 
                 setTimeout(function() {
                   self.location.href=location.href.replace('#slide=7','#slide=8');
-                  $("#res00").attr("src",imgUrl);
                   $("#skinStatus").html(name+" 님의 현재 피부 나이는 <b>"+ age +"</b>세 입니다.");
                   $('#res01').rProgressbar({
                     percentage : 60
@@ -343,9 +342,6 @@
           <p id="skinStatus"></p>
           <hr>
 
-          <pre>
-            <div data-width="100" data-height="100"><img id="res00"></img></div>
-          </pre>
             <hr>
           <pre>
             수분 <span id="res01"></span>
