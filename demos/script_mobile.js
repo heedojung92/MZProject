@@ -29,16 +29,16 @@ function start() {
 
     imageUpload.addEventListener('change', async () => {
       var image=new Image();
-      var canvas=document.createElement('canvas');
-      canvas.width=270;
-      canvas.height=480;
-      canvas.backgroundColor = 'rgb(255, 255, 255)';
+      var canvas_tmp=document.createElement('canvas');
+      canvas_tmp.width=270;
+      canvas_tmp.height=480;
+      canvas_tmp.backgroundColor = 'rgb(255, 255, 255)';
       image.src=URL.createObjectURL(e.files[0]);
       image.onload = function(){
-			canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-			canvas.getContext("2d").drawImage(image, 0, 0, 270, 480);
+			canvas_tmp.getContext("2d").clearRect(0, 0, canvas_tmp.width, canvas_tmp.height);
+			canvas_tmp.getContext("2d").drawImage(image, 0, 0, 270, 480);
 		  }
-      var dataUrl = canvas.toDataURL("image/jpeg");
+      var dataUrl = canvas_tmp.toDataURL("image/jpeg");
       var canvas_blob=dataURItoBlob(dataUrl);
 
 
