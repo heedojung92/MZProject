@@ -12,7 +12,7 @@ function dataURItoBlob(dataURI)
 		var bb = new Blob([ab], { "type": "image/jpeg" });
 		return bb;
 	}
-
+  
 const imageUpload = document.getElementById('imageUpload')
 
 Promise.all([
