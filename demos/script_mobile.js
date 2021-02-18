@@ -1,17 +1,7 @@
-function dataURItoBlob(dataURI)
-	{
-		var byteString = atob(dataURI.split(',')[1]);
-		var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
-		var ab = new ArrayBuffer(byteString.length);
-		var ia = new Uint8Array(ab);
-		for (var i = 0; i < byteString.length; i++)
-		{
-			ia[i] = byteString.charCodeAt(i);
-		}
-
-		var bb = new Blob([ab], { "type": "image/jpeg" });
-		return bb;
-	}
+function dataURItoBlob(dataURI) {
+    var arr = dataURI.split(','), mime = arr[0].match(/:(.*?);/)[1];
+    return new Blob([atob(arr[1])], {type:mime});
+}
 
 const imageUpload = document.getElementById('imageUpload')
 
@@ -46,7 +36,7 @@ function start() {
 
 
         // 사진을 화면에 표시함
-        const image = await faceapi.bufferToImage(dataUrl)
+        const image = await faceapi.bufferToImage(canvas_blob)
         //const image = await faceapi.bufferToImage(imageUpload.files[0])
         container.append(image)
 
