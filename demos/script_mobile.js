@@ -36,7 +36,7 @@ function start() {
       canvas_tmp.width=270;
       canvas_tmp.height=480;
       canvas_tmp.backgroundColor = 'rgb(255, 255, 255)';
-      img.src=URL.createObjectURL(this.files[0]);
+      img.src=URL.createObjectURL(document.getElementById("imageUpload").files[0]);
       img.onload = function(){
 			canvas_tmp.getContext("2d").clearRect(0, 0, canvas_tmp.width, canvas_tmp.height);
 			canvas_tmp.getContext("2d").drawImage(img, 0, 0, 270, 480);
