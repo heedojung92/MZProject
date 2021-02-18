@@ -1,6 +1,24 @@
 function dataURItoBlob(dataURI) {
-    var arr = dataURI.split(','), mime = arr[0].match(/:(.*?);/)[1];
-    return new Blob([atob(arr[1])], {type:mime});
+  // convert base64 to raw binary data held in a string
+  // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+  var byteString = atob(dataURI.split(',')[1]);
+
+  // separate out the mime component
+  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+
+  // write the bytes of the string to an ArrayBuffer
+  var ab = new ArrayBuffer(byteString.length);
+
+  // create a view into the buffer
+  var ia = new Uint8Array(ab);
+
+  // set the bytes of the buffer to the correct values
+  for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+  }
+  // write the ArrayBuffer to a blob, and you're done
+  var blob = new Blob([ab], {type: mimeString});
+  return blob;
 }
 
 const imageUpload = document.getElementById('imageUpload')
@@ -28,8 +46,8 @@ function start() {
       canvas_tmp.backgroundColor = 'rgb(255, 255, 255)';
       img.src=URL.createObjectURL(document.getElementById("imageUpload").files[0]);
       img.onload = function(){
-			canvas_tmp.getContext("2d").clearRect(0, 0, canvas_tmp.width, canvas_tmp.height);
-			canvas_tmp.getContext("2d").drawImage(img, 0, 0, 270, 480);
+			     canvas_tmp.getContext("2d").clearRect(0, 0, canvas_tmp.width, canvas_tmp.height);
+			     canvas_tmp.getContext("2d").drawImage(img, 0, 0, 270, 480);
 		  }
       var dataUrl = canvas_tmp.toDataURL("image/jpeg");
       var canvas_blob=dataURItoBlob(dataUrl);
