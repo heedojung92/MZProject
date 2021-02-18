@@ -46,7 +46,7 @@ function start() {
 
 
         // 사진을 화면에 표시함
-        const image = await faceapi.bufferToImage(canvas_blob)
+        const image = await faceapi.bufferToImage(dataUrl)
         //const image = await faceapi.bufferToImage(imageUpload.files[0])
         container.append(image)
 
