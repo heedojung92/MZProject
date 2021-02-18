@@ -114,7 +114,14 @@
           var age=30;
           function getStarted(){
             name=document.getElementById("name").value;
-            self.location.href= location.href.replace('#slide=2','#slide=3');
+            if(navigator.platform){
+              if(0>filter.indexOf(navigator.platform.toLowerCase())){
+                self.location.href= location.href.replace('#slide=2','#slide=3');
+              }else{
+                self.location.href="https://heedojung92.github.io/MZProject/demos/facial_detection.html";
+              }
+            }
+
           }
           var dataPoints=[];
           var options = {
@@ -155,6 +162,7 @@
             imgUrl=URL.createObjectURL(e.files[0]);
             document.getElementById("selfie").src=imgUrl;
             document.getElementById("swipeNext").innerHTML='다음으로';
+            var filter = "win16|win32|win64|mac"
             document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
           }
         </script>

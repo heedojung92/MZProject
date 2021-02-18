@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Face-Detection</title>
     <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
     <style>
         body {
@@ -17,17 +17,21 @@
     </style>
     <script defer src="face-api.min.js"></script>
     <script defer src="script.js"></script>
-
+    <script>
+      function getStarted(){
+        self.location.href="https://heedojung92.github.io/MZProject/demos/facial_analysis_#slide=4";
+      }
+    </script>
 </head>
 <body>
   <h3 class="text-landing"><b>현재 피부상태 분석</b></h3>
-  <p > 사진촬영을 통해 더욱 정확한 분석을 받아보세요.</p>
+  <p> 사진촬영을 통해 더욱 정확한 분석을 받아보세요.</p>
+  <button type="button" class="button ghost" tabindex="3" id="next" onclick="getStarted()">다음으로 &rsaquo;</button>
   <hr>
-  <pre>
   <div id="imgDiv">
   </div>
   <br><br><br>
   <input type="file" id="imageUpload">
-</pre>
+  <br><br><br>
 </body>
 </html>
