@@ -74,46 +74,11 @@
           </div>
           <br><br><br><br><br><br>
           <script>
-          var jsonData = {
-            "op1": [
-              { "x": "2016-6-25 12:58:52", "y": 56 },
-              { "x": "2016-7-25 13:33:23", "y": 70},
-              { "x": "2016-8-25 13:49:18", "y": 75 },
-              { "x": "2016-9-25 13:55:01", "y": 80 },
-              { "x": "2016-10-25 14:00:15", "y": 69 },
-            ],
-            "op2": [
-               { "x": "2016-6-25 12:58:52", "y": 19.99 },
-               { "x": "2016-7-25 13:33:23", "y": 21.78 },
-               { "x": "2016-8-25 13:49:18", "y": 23.45 },
-               { "x": "2016-9-25 13:55:01", "y": 24.73 },
-               { "x": "2016-10-25 14:00:15", "y": 26.58 }
-            ],
-            "op3": [
-              { "x": "2016-6-25 12:58:52", "y": 27.66 },
-              { "x": "2016-7-25 13:33:23", "y": 28.68 },
-              { "x": "2016-8-25 13:49:18", "y": 30.73 },
-              { "x": "2016-9-25 13:55:01", "y": 32.46 },
-              { "x": "2016-10-25 14:00:15", "y": 34.79 }
-            ],
-            "op4": [
-              { "x": "2016-6-25 12:58:52", "y": 10.22 },
-              { "x": "2016-7-25 13:33:23", "y": 11.14 },
-              { "x": "2016-8-25 13:49:18", "y": 15.25 },
-              { "x": "2016-9-25 13:55:01", "y": 19.99 },
-              { "x": "2016-10-25 14:00:15", "y": 21.78 }
-            ],
-            "op5": [
-              { "x": "2016-6-25 12:58:52", "y": 24.73 },
-              { "x": "2016-7-25 13:33:23", "y": 26.58 },
-              { "x": "2016-8-25 13:49:18", "y": 27.66 },
-              { "x": "2016-9-25 13:55:01", "y": 28.68 },
-              { "x": "2016-10-25 14:00:15", "y": 32.46 }
-          ]}
           var name="홍길동";
           var age=30;
           function getStarted(){
             name=document.getElementById("name").value;
+            var filter = "win16|win32|win64|mac"
             if(navigator.platform){
               if(0>filter.indexOf(navigator.platform.toLowerCase())){
                 self.location.href= location.href.replace('#slide=2','#slide=3');
@@ -162,7 +127,6 @@
             imgUrl=URL.createObjectURL(e.files[0]);
             document.getElementById("selfie").src=imgUrl;
             document.getElementById("swipeNext").innerHTML='다음으로';
-            var filter = "win16|win32|win64|mac"
             document.getElementById("swipeNext").href=location.href.replace('#slide=3','#slide=4');
           }
         </script>
@@ -341,15 +305,12 @@
           <h3 class="text-landing"><b>지금 내 피부 점수는?</b></h3>
           <p id="skinStatus"></p>
           <hr>
-
-            <hr>
           <pre>
             수분 <span id="res01"></span>
             유분 <span id="res02"></span>
             모공 크기 <span id="res03"></span>
             거칠기 <span id="res04"></span>
             주름 <span id="res05"></span>
-            오늘의 피부점수
             <nav class="aligncenter">
                 <a href="#" class="button radius" title="Button"><strong>&nbsp;결과 공유&nbsp;&rsaquo; </strong></a>
                 <a href="#" class="button radius" ><strong>&nbsp;분석 내용&nbsp;&rsaquo;</strong></a>
@@ -456,84 +417,6 @@ options: {
         </pre>
         </section>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js">
-        </script>
-
-        <script>
-        $('#res06').rProgressbar({
-          percentage :40
-        });
-
-        window.onload = function () {
-    chart = new CanvasJS.Chart("chartContainer",
-    {
-      title:{
-        text: ""
-    },
-    axisX:{
-        title: "일자",
-        gridThickness: 1
-    },
-    axisY: {
-        title: "피부 점수"
-    },
-    data: [
-    {
-        type: "line",
-        dataPoints: [//array
-        { x: new Date(2012, 01, 1), y: 26},
-        { x: new Date(2012, 01, 3), y: 38},
-        { x: new Date(2012, 01, 5), y: 43},
-        { x: new Date(2012, 01, 7), y: 29},
-        { x: new Date(2012, 01, 11), y: 41},
-        { x: new Date(2012, 01, 13), y: 54},
-        { x: new Date(2012, 01, 20), y: 66},
-        { x: new Date(2012, 01, 21), y: 60},
-        { x: new Date(2012, 01, 25), y: 53},
-        { x: new Date(2012, 01, 27), y: 60}
-
-        ]
-    }
-    ]
-});
-
-    chart.render();
-}
-function changeData(e){
-
-  chart = new CanvasJS.Chart("chartContainer",
-  {
-    title:{
-      text: "Simple Date-Time Chart"
-  },
-  axisX:{
-      title: "timeline",
-      gridThickness: 2
-  },
-  axisY: {
-      title: "Downloads"
-  },
-  data: [
-  {
-      type: "area",
-      dataPoints: [//array
-      { x: new Date(2012, 01, 1), y: 26},
-      { x: new Date(2012, 01, 3), y: 38},
-      { x: new Date(2012, 01, 5), y: 43},
-      { x: new Date(2012, 01, 7), y: 29},
-      { x: new Date(2012, 01, 11), y: 41},
-      { x: new Date(2012, 01, 13), y: 54},
-      { x: new Date(2012, 01, 20), y: 66},
-      { x: new Date(2012, 01, 21), y: 60},
-      { x: new Date(2012, 01, 25), y: 53},
-      { x: new Date(2012, 01, 27), y: 60}
-
-      ]
-  }
-  ]
-});
-
-  chart.render();
-}
         </script>
       </article>
     </main>
