@@ -12,7 +12,7 @@ function dataURItoBlob(dataURI)
 		var bb = new Blob([ab], { "type": "image/jpeg" });
 		return bb;
 	}
-  
+
 const imageUpload = document.getElementById('imageUpload')
 
 Promise.all([
@@ -28,12 +28,15 @@ function start() {
     container.style.position = 'relative'
 
     imageUpload.addEventListener('change', async () => {
+      if (!('url' in window) && ('webkitURL' in window)) {
+        window.URL = window.webkitURL;
+      }
       var img=new Image();
       var canvas_tmp=document.createElement('canvas');
       canvas_tmp.width=270;
       canvas_tmp.height=480;
       canvas_tmp.backgroundColor = 'rgb(255, 255, 255)';
-      img.src=URL.createObjectURL(e.files[0]);
+      img.src=URL.createObjectURL(this.files[0]);
       img.onload = function(){
 			canvas_tmp.getContext("2d").clearRect(0, 0, canvas_tmp.width, canvas_tmp.height);
 			canvas_tmp.getContext("2d").drawImage(img, 0, 0, 270, 480);
