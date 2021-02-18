@@ -1,3 +1,18 @@
+function dataURItoBlob(dataURI)
+	{
+		var byteString = atob(dataURI.split(',')[1]);
+		var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+		var ab = new ArrayBuffer(byteString.length);
+		var ia = new Uint8Array(ab);
+		for (var i = 0; i < byteString.length; i++)
+		{
+			ia[i] = byteString.charCodeAt(i);
+		}
+
+		var bb = new Blob([ab], { "type": "image/jpeg" });
+		return bb;
+	}
+
 const imageUpload = document.getElementById('imageUpload')
 
 Promise.all([
@@ -13,10 +28,23 @@ function start() {
     container.style.position = 'relative'
 
     imageUpload.addEventListener('change', async () => {
+      var image=new Image();
+      var canvas=document.createElement('canvas');
+      canvas.width=270;
+      canvas.height=480;
+      canvas.backgroundColor = 'rgb(255, 255, 255)';
+      image.src=URL.createObjectURL(e.files[0]);
+      image.onload = function(){
+			canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+			canvas.getContext("2d").drawImage(image, 0, 0, 270, 480);
+		  }
+      var dataUrl = canvas.toDataURL("image/jpeg");
+      var canvas_blob=dataURItoBlob(dataUrl);
 
 
         // 사진을 화면에 표시함
-        const image = await faceapi.bufferToImage(imageUpload.files[0])
+        const image = await faceapi.bufferToImage(canvas_blob)
+        //const image = await faceapi.bufferToImage(imageUpload.files[0])
         container.append(image)
 
         // canvas를 초기화 한다
