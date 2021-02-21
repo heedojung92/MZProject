@@ -10,13 +10,18 @@
 </head>
 <body>
     <script type='text/javascript'>
+        var imgUrl;
         function dofun(e){
+          if (!('url' in window) && ('webkitURL' in window)) {
+            window.URL = window.webkitURL;
+          }
+          imgUrl=URL.createObjectURL(e.files[0]);
         Kakao.init('7e8dd841a443e18cecc2b3e781124024');
         // 카카오 로그인 버튼을 생성합니다.
         Kakao.API.request({
           url: '/v2/vision/face/detect',
           data: {
-            image_url : "https://lh3.googleusercontent.com/proxy/O0gdtgbbL1_AI9IOibismKoPz-tgZOt1tRpuY4HvXsTh1_iXshi2dlt8A496ktxq_pCwtlmgIVXWBNNk_RnNZkyjCJOrXqjh42MEMZDmZrPbWK6Nh5zwfw"
+            image : imgUrl
           },
           success: function (msg) {
             alert(msg);
@@ -26,6 +31,6 @@
       }
       //]]>
     </script>
-    <a onclick="dofun(this)"> qwefqwef</a>
+    <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="dofun(this)"/> <br />
 </body>
 </html>
