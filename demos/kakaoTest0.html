@@ -10,26 +10,27 @@
 </head>
 <body>
   <script src='https://unpkg.com/tesseract.js@v2.0.0-alpha.13/dist/tesseract.min.js'></script>
-    <script type='text/javascript'>
-    function runOCR(url){
-      Tesseract.recognize(url)
-        .then(function(result) {
-          document.getElementById("ocr_results").innerText = result.text;
-        }).progress(function(result) {
-          document.getElementById("ocr_status").innerText = result["status"]+" ("+(result["progress"] * 100) + "%)";
-        });
-      }
 
-document.getElementById("go_button").addEventListener("click", function(e) {
-  var url = document.getElementById("url").value;
-  runOCR(url);
-});
-
-
-    </script>
     <input type="text" id="url" placeholder="Image URL"/>
 <input type="button" id="go_button" value="Run"/>
 <div id="ocr_status"></div>
 <div id="ocr_results"></div>
+<script type='text/javascript'>
+function runOCR(url){
+  Tesseract.recognize(url)
+    .then(function(result) {
+      document.getElementById("ocr_results").innerText = result.text;
+    }).progress(function(result) {
+      document.getElementById("ocr_status").innerText = result["status"]+" ("+(result["progress"] * 100) + "%)";
+    });
+  }
+
+document.getElementById("go_button").addEventListener("click", function(e) {
+var url = document.getElementById("url").value;
+runOCR(url);
+});
+
+
+</script>
 </body>
 </html>
