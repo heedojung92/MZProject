@@ -9,28 +9,27 @@
 
 </head>
 <body>
+  <script src='https://unpkg.com/tesseract.js@v2.0.0-alpha.13/dist/tesseract.min.js'></script>
     <script type='text/javascript'>
-        var imgUrl;
-        function dofun(e){
-          if (!('url' in window) && ('webkitURL' in window)) {
-            window.URL = window.webkitURL;
-          }
-          imgUrl=URL.createObjectURL(e.files[0]);
-        Kakao.init('7e8dd841a443e18cecc2b3e781124024');
-        // 카카오 로그인 버튼을 생성합니다.
-        Kakao.API.request({
-          url: '/v2/vision/face/detect',
-          data: {
-            image : imgUrl
-          },
-          success: function (msg) {
-            alert(msg);
-            console.log(msg);
-          }
+    function runOCR(url){
+      Tesseract.recognize(url)
+        .then(function(result) {
+          document.getElementById("ocr_results").innerText = result.text;
+        }).progress(function(result) {
+          document.getElementById("ocr_status").innerText = result["status"]+" ("+(result["progress"] * 100) + "%)";
         });
       }
-      //]]>
+
+document.getElementById("go_button").addEventListener("click", function(e) {
+  var url = document.getElementById("url").value;
+  runOCR(url);
+});
+
+
     </script>
-    <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="dofun(this)"/> <br />
+    <input type="text" id="url" placeholder="Image URL"/>
+<input type="button" id="go_button" value="Run"/>
+<div id="ocr_status"></div>
+<div id="ocr_results"></div>
 </body>
 </html>
