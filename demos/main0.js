@@ -18,11 +18,6 @@ function uploadFiles (event) {
   var reader = new FileReader();
   reader.onloadend = processFile;
   reader.readAsDataURL(file);
-  if (!('url' in window) && ('webkitURL' in window)) {
-    window.URL = window.webkitURL;
-  }
-  var imgUrl=URL.createObjectURL(file);
-  document.getElementById("captured").src=imgUrl;
 }
 
 /**
@@ -67,11 +62,10 @@ function sendFileToCloudVision (content) {
  * Displays the results.
  */
 function displayJSON (data) {
-
-  //alert(JSON.stringify(data.responses[0].textAnnotations[0].description));
-  var info=JSON.stringify(data.responses[0].textAnnotations[0].description);
+  
+  alert(JSON.stringify(data.responses[0].textAnnotations[0].description));
   var contents = JSON.stringify(data, null, 4);
-  $('#results').html(info.replace(/\\n/g, "<br>"));
+  $('#results').text(contents);
   var evt = new Event('results-displayed');
   evt.results = contents;
   document.dispatchEvent(evt);
