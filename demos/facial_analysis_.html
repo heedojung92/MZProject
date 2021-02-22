@@ -265,28 +265,33 @@
                   self.location.href=location.href.replace('#slide=7','#slide=8');
                   $("#skinStatus").html(name+" 님의 현재 피부 나이는 <b>"+ age +"</b>세 입니다.");
                   $('#res01').rProgressbar({
+                    fillBackgroundColor: 'yellow',
                     percentage : 60
                   });
                   $('#res02').rProgressbar({
+                    fillBackgroundColor: 'LimeGreen',
                     percentage : 75
                   });
                   $('#res03').rProgressbar({
+                    fillBackgroundColor: 'LimeGreen',
                     percentage : 88
                   });
                   $('#res04').rProgressbar({
+                    fillBackgroundColor: 'red',
                     percentage : 37
                   });
                   $('#res05').rProgressbar({
-                    percentage : 40
+                    fillBackgroundColor: 'yellow',
+                    percentage : 50
                   });
-                }, 4500);
+                }, 3500);
 
               };
 
           </script>
         </section>
         <section class="bg-white">
-          <span class="background" style="background-image:url('loading.gif')"></span>
+          <span class="background" style="background-image:url('loading_3.gif')"></span>
         </section>
 
         <section>
@@ -302,7 +307,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거칠기 <span id="res04"></span>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주름 <span id="res05"></span>
             <br>
-            <a href="#" class="button radius" ><strong>&nbsp;분석 내용 보기&nbsp;&nbsp;&rsaquo;</strong></a>
+            <a href="#slide=9" class="button radius" ><strong>&nbsp;분석 내용 보기&nbsp;&nbsp;&rsaquo;</strong></a>
           </pre>
 
           </div>
@@ -332,7 +337,6 @@
           </span><hr>
           <pre>
           <p id="desc"></p>
-          <a href="#" class="button radius" title="Button">&nbsp;피부 다이어리 (회원 기능)&nbsp;&rsaquo;</a></li>
         </pre>
           <br><br><br><br><br><br><br><br>
           <p>
