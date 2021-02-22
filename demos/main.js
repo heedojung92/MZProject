@@ -38,8 +38,8 @@ function processFile (event) {
  * results.
  */
 function sendFileToCloudVision (content) {
-  var type = $('#fileform [name=type]').val();
-
+  //var type = $('#fileform [name=type]').val();
+  var type="TEXT_DETECTION";
   // Strip out the file prefix when you convert to json.
   var request = {
     requests: [{
